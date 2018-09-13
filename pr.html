@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>курсовая</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <form method="post" action="server.php" name="submitData" id="submitData">
+
+        <table border="1" class="tableStyleClass">
+            <caption>хар-ки неподвижных зарядов</caption>
+
+            <tr>
+                <td>
+                    <div>
+                        введите абсциссу 1 заряда:
+                        <input form="submitData" type="text" size="30" name="xCoordFirst" id="xCoordFirst">
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        введите ординату 1 заряда:
+                        <input form="submitData" type="text" size="30" name="yCoordFirst" id="yCoordFirst">
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        введите заряд 1 заряда:
+                        <input form="submitData" type="text" size="30" name="chargeFirst" id="chargeFirst">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        введите абсциссу 2 заряда:
+                        <input form="submitData" type="text" size="30" id="xCoordSecond" name="xCoordSecond">
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        введите ординату 2 заряда:
+                        <input form="submitData" type="text" size="30" id="yCoordSecond" name="yCoordSecond">
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        введите заряд 2 заряда:
+                        <input form="submitData" type="text" size="30" id="chargeSecond" name="chargeSecond">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        введите абсциссу 3 заряда:
+                        <input form="submitData" type="text" size="30" id="xCoordThird" name="xCoordThird">
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        введите ординату 3 заряда:
+                        <input form="submitData" type="text" size="30" id="yCoordThird" name="yCoordThird">
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        введите заряд 3 заряда:
+                        <input form="submitData" type="text" size="30" id="chargeThird" name="chargeThird">
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <table border="1" class="tableStyleClass">
+            <caption>Параметры подвижного объекта</caption>
+            <tr>
+                <td>
+                    <div>
+                        введите абсциссу подвижного заряда:
+                        <input form="submitData" type="text" size="30" id="xCoordShifting" name="xCoordShifting">
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        введите ординату подвижного заряда:
+                        <input form="submitData" type="text" size="30" id="yCoordShifting" name="yCoordShifting">
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        введите заряд подвижного заряда:
+                        <input form="submitData" type="text" size="30" id="chargeShifting" name="chargeShifting">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        введите Vx подвижного заряда:
+                        <input form="submitData" type="text" size="30" name="xVelocityShifting">
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        введите Vy подвижного заряда:
+                        <input form="submitData" type="text" size="30" name="yVelocityShifting">
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="buttonStyleClass">
+            <input type="submit" id="submitButton" value="задать параметры системы " >
+          <input type="text" form="submitData" size="50" id="arrayLen" name="arrayLen" placeholder="введите время моделирования в секундах">
+          
+        </div>
+        
+
+    </form>
+
+    <div class="canvasContainer">
+      <canvas width="1000" height="800" id="canvas1" class="canvasStyleClass" style="position: absolute; z-index: 1; visibility: visible;">
+      </canvas>
+      <canvas width="1000" height="800" id="canvas2" class="canvasStyleClass" style="position: absolute; z-index: 2; visibility: visible;" >    
+      </canvas>
+      <canvas width="1000" height="800" id="canvas3" class="canvasStyleClass" style="position: absolute; z-index: 0; visibility: visible;"></canvas>
+    </div>
+    <div>
+      <input type = "button"  id="toggleTraceShifting" value="скрыть следы" class="buttonStyleClass">
+      <a href="plots.pdf?" download="" id = "downloadA"><input value="загрузить графики" type="button"  class="buttonStyleClass"></a>
+    </div>
+
+
+
+    <table class="tableStyleClass" id = "picsTable">
+        <caption>графики</caption>
+        <tr>
+            <td><img id = "p1"  src="xy.jpg?"></td>
+            <td><img id = "p2"  src="xt.jpg?"></td>
+            <td><img id = "p3"  src="yt.jpg?"></td>
+            <td><img id = "p4"  src="vxt.jpg?"></td>
+            <td><img id = "p5"  src="vyt.jpg?"></td>
+            <td><img id = "p6"  src="vxvy.jpg?"></td>
+        </tr>
+        <tr>
+            <td><img id = "p7"  src="x1y1.jpg?"></td>
+            <td><img id = "p8"  src="x1t.jpg?"></td>
+            <td><img id = "p9"  src="y1t.jpg?"></td>
+            <td><img id = "p10" src="vx1t.jpg?"></td>
+            <td><img id = "p11" src="vy1t.jpg?"></td>
+            <td><img id = "p12" src="vx1vy1.jpg?"></td>
+        </tr>
+        <tr>
+            <td><img id = "p13"  src="x2y2.jpg?"></td>
+            <td><img id = "p14"  src="x2t.jpg?"></td>
+            <td><img id = "p15"  src="y2t.jpg?"></td>
+            <td><img id = "p16"  src="vx2t.jpg?"></td>
+            <td><img id = "p17"  src="vy2t.jpg?"></td>
+            <td><img id = "p18"  src="vx2vy2.jpg?"></td>   
+        </tr>
+        <tr>
+            <td><img id = "p19"  src="x3y3.jpg?"></td>
+            <td><img id = "p20"  src="x3t.jpg?"></td>
+            <td><img id = "p21"  src="y3t.jpg?"></td>
+            <td><img id = "p22"  src="vx3t.jpg?"></td>
+            <td><img id = "p23"  src="vy3t.jpg?"></td>
+            <td><img id = "p24"  src="vx3vy3.jpg?"></td> 
+        </tr>
+    </table>
+
+
+    <script src="script.js">
+    </script>
+</body>
+
+</html>
